@@ -1,0 +1,65 @@
+/*
+This script answers the following question:
+- How were cash and credit card payments developing in 2014 (here: july)?
+
+Fields I use:
+	pickup_datetime - I will consider it as the time of a trip
+	total_amount - it includes all payment and additional fees
+
+NOTE: I subtract tip_amount from total_amount where payment is not cash, as cash tips
+are not included in this dataset and looking at them might give misleading results.
+*/
+
+
+/*
+payment_type - according to the dictionary from the Google cloud:
+A numeric code signifying how the passenger paid for the trip.
+	1= Credit card
+	2= Cash
+	3= No charge
+	4= Dispute
+	5= Unknown
+	6= Voided trip
+*/
+DROP TABLE IF EXISTS payments_all;
+
+CREATE TEMPORARY TABLE payments_all AS
+SELECT
+	'yellow' AS which_table,
+	pickup_datetime,
+	CASE
+		WHEN payment_type = 'CRD' THEN 1
+		WHEN payment_type = 'CSH' THEN 2
+		WHEN payment_type = 'NOC' THEN 3
+		WHEN payment_type = 'DIS' THEN 4
+		WHEN payment_type = 'UNK' THEN 5
+	END AS payment_type,
+	total_amount - tip_amount AS total_minus_tip
+FROM yellow_tripdata_2014_07
+WHERE payment_type IN ('CRD', 'CSH')
+
+UNION ALL
+
+SELECT
+	'green' AS which_table,
+	lpep_pickup_datetime AS pickup_datetime,
+	payment_type,
+	total_amount - tip_amount AS total_minus_tip
+FROM green_tripdata_2014_07
+WHERE payment_type IN (1, 2)
+;
+
+-- Aggregated by day of year - counts & sum - green/yellow separately
+DROP TABLE IF EXISTS payments_all_by_day_of_year;
+
+CREATE TABLE payments_all_by_day_of_year AS
+SELECT
+	payment_type,
+	EXTRACT(DOY FROM pickup_datetime) AS day_of_year,
+	COUNT(total_minus_tip),
+	SUM(total_minus_tip)
+FROM payments_all
+GROUP BY payment_type, day_of_year
+ORDER BY payment_type, day_of_year;
+
+SELECT * FROM payments_all_by_day_of_year;
