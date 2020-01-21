@@ -128,6 +128,7 @@ Code in the following file:
 Visualisations in the following file:    
 - python_scripts/Question2_postgresql_based_visualisations-checkpoint.ipynb
 
+##### Answer   
 Although I made some visualisations for the sole month of July
 and one can clearly see that both the amount of transactions
 and the amount of money spent varies greatly throughout the week...
@@ -174,12 +175,7 @@ Code in the following file:
 Visualisations in the following file:    
 - python_scripts/Question2_google_cloud_based_visualisations-checkpoint.ipynb
 
-
-
-### Question 3 - What is the most popular pick-up point in New York in 2014?
-Code in the following file:     
-- google_cloud/Question3_google_cloud_answer.sql   
-
+##### Answer   
 Main insights:
 - Card is used more than Cash
 - The amount of transactions and 'dollars paid' varies throughout the year
@@ -187,6 +183,11 @@ Main insights:
 - The end/beginning of the year sees a big drop in cab usage
 - There's a drop of cab usage around August as well
 - When it comes to a trend - it would be useful to get year by year comparison
+
+
+### Question 3 - What is the most popular pick-up point in New York in 2014?
+Code in the following file:     
+- google_cloud/Question3_google_cloud_answer.sql   
 
 ##### Answer   
 Each degree of latitude is approximately 111 kilometers apart. It is constant.
@@ -201,8 +202,6 @@ popular 'pickup-rectangle':
 When you find this rectangle on a map, you'll see that it's 
 **right outside of Pensylvania Station**.
 	
-
-
 
 Projecting it onto a map can confirm, whether less popular rectangles don't form bigger,
 more popular pick-up locations.
