@@ -62,4 +62,6 @@ FROM payments_all
 GROUP BY payment_type, day_of_year
 ORDER BY payment_type, day_of_year;
 
-SELECT * FROM payments_all_by_day_of_year;
+COPY payments_all_by_day_of_year
+TO 'C:\Users\blaze\Desktop\TLC_NYC\result_csv_for_tableau\payments_all_by_day_of_year.csv'
+DELIMITER ',' CSV HEADER;

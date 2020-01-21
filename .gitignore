@@ -2,6 +2,7 @@
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 .idea/*
 python_scripts/.ipynb_checkpoints/
+scratch.py
 
 # User-specific stuff
 .idea/**/workspace.xml
