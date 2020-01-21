@@ -3,14 +3,12 @@ This script answers the following question:
 - Which day of week had the highest count of rides in 2014?
     --> here, due to my machine's limitations I take only July into consideration
 
-I could achieve the same by using Common Table Expressions,but since I use it
+I could achieve the same by using Common Table Expressions, but since I use it
 with my Google Cloud solution I use Temporary Tables here
 */
 
 DROP TABLE IF EXISTS day_of_week_all
 ;
-
-
 /* Creates a big table containing date data from different tables
 
 NOTE:
@@ -30,8 +28,12 @@ SELECT
 	EXTRACT(DOW FROM pickup_datetime) AS day_of_week
 FROM yellow_tripdata_2014_07;
 
-DROP TABLE IF EXISTS day_of_week_all_count;
 
+
+
+
+DROP TABLE IF EXISTS day_of_week_all_count
+;
 -- Aggregates data by day_of_week for: all data; yellow cabs only; green cabs only;
 CREATE TEMP TABLE day_of_week_all_count AS
 SELECT

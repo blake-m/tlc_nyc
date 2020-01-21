@@ -3,16 +3,11 @@ This script answers the following question:
 - What is the most popular pick-up point in New York in 2014?
 
 Each degree of latitude is approximately 111 kilometers apart. It is constant.
-Longitude changes but around New York it is around 85 km. I don't need exact
+Longitude changes but around New York 1 degree is around 85 km. I don't need exact
 numbers for this exercise. I will be using squares of 1/10000 of degrees which will
 correspond to rectangles of around 11 x 8.5 meters. This way I will find the most
 popular 'pickup-rectangle'. Later I will project it onto a map to confirm, whether
 less popular rectangles don't form bigger, more popular pick-up locations.
-
-
-Clearly, some of the data is broken (like 0.0000 longitudes/latitudes or points
-way outside of New York). There's not a big reason to worry about it as the
-percentage of broken data is not great and it doesn't influence the outcome really.
 
 NOTE:
 - In this data set there's a variable called 'ratecodeid' (The final rate code
@@ -21,8 +16,6 @@ or Westchester 5=Negotiated fare 6=Group ride) - I could use it to filter out
 airports. I am not sure whether Negotiated Fare and Group Ride could not go
 to airport anyway and it will be easy to filter airports out later anyway
 so I won't use it.
-
-
 */
 
 WITH most_popular_pickup_locations AS (

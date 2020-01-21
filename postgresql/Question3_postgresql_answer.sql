@@ -3,7 +3,7 @@ This script answers the following question:
 - What is the most popular pick-up point in New York in 2014 (here - July)?
 
 Each degree of latitude is approximately 111 kilometers apart. It is constant.
-Longitude changes but around New York it is around 85 km. I don't need exact
+Longitude changes but around New York 1 degree is around 85 km. I don't need exact
 numbers for this exercise. I will be using squares of 1/10000 of degrees which will
 correspond to rectangles of around 11 x 8.5 meters. This way I will find the most
 popular 'pickup-rectangle'. Later I will project it onto a map to confirm, whether

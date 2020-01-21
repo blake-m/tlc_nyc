@@ -8,10 +8,7 @@ Fields I use:
 
 NOTE: I subtract tip_amount from total_amount where payment is not cash, as cash tips
 are not included in this dataset and looking at them might give misleading results.
-*/
 
-
-/*
 payment_type - according to the dictionary from the Google cloud:
 A numeric code signifying how the passenger paid for the trip.
 	1= Credit card

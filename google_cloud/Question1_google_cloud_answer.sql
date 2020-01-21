@@ -17,17 +17,17 @@ NOTE:
     Therefore pickup_datetime will be considered.
 */
 WITH day_of_week_all AS (
-SELECT
-	'green' AS which_table,
-	EXTRACT(DAYOFWEEK FROM pickup_datetime) AS day_of_week
-FROM `bigquery-public-data.new_york.tlc_green_trips_2014`
+    SELECT
+        'green' AS which_table,
+        EXTRACT(DAYOFWEEK FROM pickup_datetime) AS day_of_week
+    FROM `bigquery-public-data.new_york.tlc_green_trips_2014`
 
-UNION ALL
+    UNION ALL
 
-SELECT
-	'yellow' AS which_table,
-	EXTRACT(DAYOFWEEK FROM pickup_datetime) AS day_of_week
-FROM `bigquery-public-data.new_york.tlc_yellow_trips_2014`
+    SELECT
+        'yellow' AS which_table,
+        EXTRACT(DAYOFWEEK FROM pickup_datetime) AS day_of_week
+    FROM `bigquery-public-data.new_york.tlc_yellow_trips_2014`
 )
 
 SELECT
